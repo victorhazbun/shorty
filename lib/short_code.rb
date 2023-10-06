@@ -1,7 +1,12 @@
+# @note To read
 class ShortCode
   ALPHABET = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".freeze
   BASE = ALPHABET.length
 
+  # Encodes a number into a short string.
+  #
+  # @param number [Integer] The number to encode.
+  # @return [String] The encoded string.
   def self.encode(number)
     return ALPHABET.first if number.zero? || number.nil?
 
@@ -17,6 +22,10 @@ class ShortCode
     result
   end
 
+  # Decodes a short string into a number.
+  #
+  # @param string [String] The short string to decode.
+  # @return [Integer] The decoded number.
   def self.decode(string)
     number = 0
 

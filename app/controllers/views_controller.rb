@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# @note To read
 class ViewsController < ApplicationController
   def show
     long = Rails.cache.fetch("url:#{params[:id]}") do

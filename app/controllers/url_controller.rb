@@ -1,6 +1,9 @@
+# frozen_string_literal: true
+
 require 'snow_flake'
 require 'short_code'
 
+# @note To read
 class UrlController < ApplicationController
   def create
     url = CreateUrl.call(short:, long: params[:long])

@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# @note To read
 class SnowFlake
   TIMESTAMP_BITS = 41
   NODE_ID_BITS   = 5

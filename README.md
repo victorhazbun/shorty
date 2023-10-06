@@ -17,6 +17,10 @@ The code also showcases:
 Follow this [link](https://github.com/search?q=repo%3Avictorhazbun%2Fshorty+%40note+to+read&type=code
 ) to see the most relevant code.
 
+## Design
+
+See the system design [here](https://github.com/victorhazbun/shorty/blob/main/Design.md)
+
 ## Dependencies
 
 - Postgres 15.x

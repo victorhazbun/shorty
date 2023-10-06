@@ -1,24 +1,92 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Motivation
 
-Things you may want to cover:
+I wanted to show case my problem solving abilities by using optimal algorithms for large scale and distributed applications, in this case a URL shortener app.
 
-* Ruby version
+The code also showcases:
 
-* System dependencies
+- SOLID principle ✔️
+- Code best practices  ✔️
+- Database indexes ✔️
+- Automated tests with Rspec  ✔️
+- API only mode provided by Rails for fast responses ✔️
 
-* Configuration
+## Where to look?
 
-* Database creation
+Follow this [link](https://github.com/search?q=repo%3Avictorhazbun%2Fshorty+%40note+to+read&type=code
+) to see the most relevant code.
 
-* Database initialization
+## Dependencies
 
-* How to run the test suite
+- Postgres 15.x
+- Redis 7.x
 
-* Services (job queues, cache servers, search engines, etc.)
+## Setup
 
-* Deployment instructions
+`bin/setup`
 
-* ...
+## Automated tests
+
+`rspec`
+
+## Testing the application locally
+
+`rails s`
+
+Short a URL:
+
+`curl --location 'localhost:3000/url' \
+--form 'long="https://gorails.com/setup/macos/13-ventura"'`
+
+```json
+{
+    "id": 1,
+    "short": "99hcey2kh",
+    "long": "https://gorails.com/setup/macos/13-ventura",
+    "created_at": "2023-10-06T17:16:53.044Z",
+    "updated_at": "2023-10-06T17:16:53.044Z"
+}
+```
+
+View the long URL:
+
+`curl --location 'localhost:3000/v/99hcey2kh'`
+
+```json
+{
+    "long": "https://gorails.com/setup/macos/13-ventura"
+}
+```
+
+## Testing the application in the cloud (Heroku)
+
+Short a URL:
+
+`curl --location 'snnol.co/url' \
+--form 'long="https://gorails.com/setup/macos/13-ventura"'`
+
+```json
+{
+    "id": 10,
+    "short": "9v28s18FX",
+    "long": "https://gorails.com/setup/macos/13-ventura",
+    "created_at": "2023-10-06T17:22:44.873Z",
+    "updated_at": "2023-10-06T17:22:44.873Z"
+}
+```
+
+View the long URL:
+
+`curl --location 'snnol.co/v/9v28s18FX`
+
+```json
+{
+    "long": "https://gorails.com/setup/macos/13-ventura"
+}
+```
+
+## Contact me
+
+victorhazbun87@gmail.com
+

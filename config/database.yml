@@ -82,5 +82,5 @@ test:
 production:
   <<: *default
   database: shorty_production
-  username: dzbqawdmghwcox
+  username: shorty
   password: <%= ENV["SHORTY_DATABASE_PASSWORD"] %>

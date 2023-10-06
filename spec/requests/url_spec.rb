@@ -11,7 +11,7 @@ RSpec.describe 'Urls', type: :request do
         expect(response).to have_http_status(:created)
 
         url = JSON.parse(response.body)
-        expect(url['short'].length).to eq(3)
+        expect(url['short'].length).to eq(9)
         expect(url['long']).to eq(long)
       end
     end

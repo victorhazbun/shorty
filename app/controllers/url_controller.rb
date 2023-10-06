@@ -17,7 +17,6 @@ class UrlController < ApplicationController
   private
 
   def short
-    Time.new(2023, 10, 1, 0, 0, 0).strftime('%s%L').to_i
     ShortCode.encode(SnowFlake.new.next_id)
   end
 end

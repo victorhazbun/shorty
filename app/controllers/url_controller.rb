@@ -1,4 +1,5 @@
 require 'snow_flake'
+require 'short_code'
 
 class UrlController < ApplicationController
   def create
@@ -13,7 +14,7 @@ class UrlController < ApplicationController
   private
 
   def short
-    target_epoch = Time.new(2023, 9, 19, 0, 0, 0).strftime('%s%L').to_i
-    SnowFlake.new(target_epoch:).next_id
+    target_epoch = Time.new(2023, 10, 1, 0, 0, 0).strftime('%s%L').to_i
+    ShortCode.encode(SnowFlake.new(target_epoch:).next_id)
   end
 end

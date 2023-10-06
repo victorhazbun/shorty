@@ -12,7 +12,7 @@ RSpec.describe 'Urls', type: :request do
 
         url = JSON.parse(response.body)
 
-        expect(url['short']).to be_present
+        expect(url['short'].length).to eq(9)
         expect(url['long']).to eq(long)
       end
     end

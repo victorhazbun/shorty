@@ -13,7 +13,7 @@ class SnowFlake
 
   attr_accessor :target_epoch
 
-  def initialize(target_epoch:, datacenter_id: 1, node_id: 1, sequence: 0)
+  def initialize(target_epoch: Time.now.strftime('%s%L').to_i, datacenter_id: 1, node_id: 1, sequence: 0)
     raise OverflowError, "invalid node_id (#{node_id} >= #{MAX_NODE_ID})" if node_id >= MAX_NODE_ID
     if datacenter_id >= MAX_DATACENTER_ID
       raise OverflowError, "invalid datacenter_id (#{datacenter_id} >= #{MAX_DATACENTER_ID})"
@@ -37,20 +37,6 @@ class SnowFlake
     @last_time = time
 
     compose(@last_time, @datacenter_id, @node_id, @sequence)
-  end
-
-  def parse(flake_id)
-    SnowFlake.parse(flake_id, @target_epoch)
-  end
-
-  def self.parse(flake_id, target_epoch)
-    hash = {}
-    hash[:epoch_time] = flake_id >> (SEQUENCE_BITS + NODE_ID_BITS + DATACENTER_ID_BITS)
-    hash[:time] = Time.at((hash[:epoch_time] + target_epoch) / 1000.0)
-    hash[:datacenter_id] = (flake_id >> (SEQUENCE_BITS + DATACENTER_ID_BITS)).to_s(2)[-DATACENTER_ID_BITS, DATACENTER_ID_BITS].to_i(2)
-    hash[:node_id] = (flake_id >> SEQUENCE_BITS).to_s(2)[-NODE_ID_BITS, NODE_ID_BITS].to_i(2)
-    hash[:sequence] = flake_id.to_s(2)[-SEQUENCE_BITS, SEQUENCE_BITS].to_i(2)
-    hash
   end
 
   private

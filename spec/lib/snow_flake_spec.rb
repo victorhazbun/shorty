@@ -33,19 +33,4 @@ describe SnowFlake do
       end
     end
   end
-
-  describe '#parse' do
-    let(:snow_flake_id) { snow_flake.next_id }
-    let(:hash) { snow_flake.parse(snow_flake_id) }
-
-    it 'parses a snowflake ID into a hash' do
-      Timecop.freeze do
-        expect(hash[:epoch_time]).to eq(snow_flake.next_id >> (SnowFlake::SEQUENCE_BITS + SnowFlake::NODE_ID_BITS + SnowFlake::DATACENTER_ID_BITS))
-        expect(hash[:time]).to eq(Time.at((hash[:epoch_time] + snow_flake.target_epoch) / 1000.0))
-        expect(hash[:datacenter_id]).to eq(1)
-        expect(hash[:node_id]).to eq(1)
-        expect(hash[:sequence]).to eq(1)
-      end
-    end
-  end
 end

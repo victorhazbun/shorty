@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Url, type: :model do
-  let(:short) { 'https://shorty.com/a1c2b3' }
+  let(:short) { 'a1c2b3' }
   let(:long) { 'https://shorty.com/a1c2b3' }
   subject(:url) { described_class.new(short:, long:) }
 

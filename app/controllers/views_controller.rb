@@ -4,7 +4,7 @@
 class ViewsController < ApplicationController
   def show
     long = Rails.cache.fetch("url:#{params[:id]}") do
-      Url.where(short: params[:id]).last&.long
+      Url.find_by(short: params[:id])&.long
     end
 
     if long

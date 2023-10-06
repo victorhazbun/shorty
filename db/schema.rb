@@ -10,16 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_06_064356) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_06_222902) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "urls", force: :cascade do |t|
-    t.string "short"
-    t.string "long"
+    t.string "short", limit: 10
+    t.string "long", limit: 2083
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["long"], name: "index_urls_on_long", unique: true
+    t.index ["short"], name: "index_urls_on_short", unique: true
   end
 
 end

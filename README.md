@@ -9,6 +9,7 @@ The code also showcases:
 - SOLID principles ✔️
 - Code best practices  ✔️
 - Database indexes ✔️
+- Caching ✔️
 - Automated tests with Rspec  ✔️
 - API only mode provided by Rails for fast responses ✔️
 

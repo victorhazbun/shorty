@@ -6,7 +6,7 @@ I wanted to show case my problem solving abilities by using optimal algorithms f
 
 The code also showcases:
 
-- SOLID principle ✔️
+- SOLID principles ✔️
 - Code best practices  ✔️
 - Database indexes ✔️
 - Automated tests with Rspec  ✔️

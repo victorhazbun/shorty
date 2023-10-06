@@ -37,3 +37,5 @@ group :development, :test do
   gem 'dotenv-rails'
   gem 'timecop'
 end
+
+gem "honeybadger", "~> 5.2"

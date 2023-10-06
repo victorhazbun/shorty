@@ -3,19 +3,6 @@
 require 'rails_helper'
 require 'snow_flake'
 
-# describe SnowFlake do
-#   let(:target_epoch) { Time.new(2023, 9, 19, 0, 0, 0).strftime('%s%L').to_i }
-#   subject(:snow_flake) { described_class.new(target_epoch) }
-
-#   describe "#next_id" do
-#     it { expect(snow_flake.next_id).to eq('111') }
-#   end
-
-#   describe '#parse' do
-#   end
-# end
-
-
 describe SnowFlake do
   let(:target_epoch) { Time.new(2023, 9, 19, 0, 0, 0).strftime('%s%L').to_i }
   subject(:snow_flake) { described_class.new(target_epoch:) }
@@ -50,9 +37,9 @@ describe SnowFlake do
   describe '#parse' do
     let(:snow_flake_id) { snow_flake.next_id }
     let(:hash) { snow_flake.parse(snow_flake_id) }
+
     it 'parses a snowflake ID into a hash' do
       Timecop.freeze do
-
         expect(hash[:epoch_time]).to eq(snow_flake.next_id >> (SnowFlake::SEQUENCE_BITS + SnowFlake::NODE_ID_BITS + SnowFlake::DATACENTER_ID_BITS))
         expect(hash[:time]).to eq(Time.at((hash[:epoch_time] + snow_flake.target_epoch) / 1000.0))
         expect(hash[:datacenter_id]).to eq(1)

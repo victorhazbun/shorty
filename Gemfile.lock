@@ -198,7 +198,6 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap
-  connection_pool
   debug
   dotenv-rails
   honeybadger (~> 5.2)

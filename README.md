@@ -41,8 +41,7 @@ See the system design [here](https://github.com/victorhazbun/shorty/blob/main/De
 
 Short a URL:
 
-`curl --location 'localhost:3000/url' \
---form 'long="https://gorails.com/setup/macos/13-ventura"'`
+`curl --location 'localhost:3000/url' --form 'long="https://gorails.com/setup/macos/13-ventura"'`
 
 ```json
 {
@@ -68,8 +67,7 @@ View the long URL:
 
 Short a URL:
 
-`curl --location 'snnol.co/url' \
---form 'long="https://gorails.com/setup/macos/13-ventura"'`
+`curl --location 'snnol.co/url' --form 'long="https://gorails.com/setup/macos/13-ventura"'`
 
 ```json
 {
